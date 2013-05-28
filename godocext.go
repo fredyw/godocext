@@ -120,7 +120,7 @@ func runGoDoc(packageName string) error {
 					line += " ... }"
 				}
 			}
-			fmt.Println(packageName+":", line)
+			fmt.Println(filepath.ToSlash(packageName)+":", line)
 		}
 	}()
 	cmd.Wait()

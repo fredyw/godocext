@@ -70,7 +70,7 @@ Examples
     ./godocext -m > methods.txt
     ./godocext -f > functions.txt
     ./godocext -t > types.txt
-    grep "Read\(.*\)" methods.txt
+    egrep "Read\(.*\)" methods.txt
 
     Windows (this example uses Powershell)
     --------------------------------------
