@@ -9,11 +9,11 @@ How to build
 
 Usage
 -----
-`Usage: ./godocext
-  -f=false: show functions only
-  -h=false: show help
-  -m=false: show methods only
-  -t=false: show types only`
+    Usage: ./godocext
+      -f=false: show functions only
+      -h=false: show help
+      -m=false: show methods only
+      -t=false: show types only`
 
 Sample output
 -------------
@@ -53,22 +53,27 @@ Sample output
 Examples
 --------
 ### Search for types that implement Read function ###
-    On Linux:
+    Linux
+    -----
     ./godocext -m | egrep "Read\(.*\)"
     godoc bufio Read (to get more detailed information)
 
-    On Windows (you need to use Powershell, if you want to use CMD, you are out of luck)
+    Windows (this example uses Powershell)
+    --------------------------------------
     .\godocext -m | Select-String -Pattern "Read\(.*\)"
     godoc bufio Read (to get more detailed information)
 
-### Build static output for faster search ###
-    On Linux:
+    Build static output for faster search
+    =====================================
+    Linux
+    -----
     ./godocext -m > methods.txt
     ./godocext -f > functions.txt
     ./godocext -t > types.txt
     grep "Read\(.*\)" methods.txt
 
-    On Windows:
+    Windows (this example uses Powershell)
+    --------------------------------------
     .\godocext -m > methods.txt
     .\godocext -f > functions.txt
     .\godocext -t > types.txt
