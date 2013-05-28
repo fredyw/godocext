@@ -13,6 +13,7 @@ Usage
       -f=false: show functions only
       -h=false: show help
       -m=false: show methods only
+      -r="": use regular expression
       -t=false: show types only`
 
 Sample output
@@ -52,32 +53,10 @@ Sample output
 
 Examples
 --------
-### Search for types that implement Read function ###
-    Linux
-    -----
-    ./godocext -m | egrep "Read\(.*\)"
+### Search all types that implement Read function ###
+    ./godocext -m -r="Read\(.*\)"
     godoc bufio Read (to get more detailed information)
 
-    Windows (this example uses Powershell)
-    --------------------------------------
-    .\godocext.exe -m | Select-String -Pattern "Read\(.*\)"
-    godoc bufio Read (to get more detailed information)
-
-    Build static output for faster search
-    =====================================
-    Linux
-    -----
-    ./godocext > help.txt
-    ./godocext -m > methods.txt
-    ./godocext -f > functions.txt
-    ./godocext -t > types.txt
-    egrep "Read\(.*\)" methods.txt
-
-    Windows (this example uses Powershell)
-    --------------------------------------
-    .\godocext.exe > help.txt
-    .\godocext.exe -m > methods.txt
-    .\godocext.exe -f > functions.txt
-    .\godocext.exe -t > types.txt
-    Get-Content methods.txt | Select-String -Pattern "Read\(.*\)"
+### Search all builtin types ###
+    ./godocext -t -r="builtin:"
 

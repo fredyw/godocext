@@ -38,6 +38,7 @@ var (
 	methodOnlyFlag   *bool
 	functionOnlyFlag *bool
 	typeOnlyFlag     *bool
+	regexpFlag       *string
 )
 
 func printUsage() {
@@ -120,7 +121,14 @@ func runGoDoc(packageName string) error {
 					line += " ... }"
 				}
 			}
-			fmt.Println(filepath.ToSlash(packageName)+":", line)
+			output := filepath.ToSlash(packageName) + ": " + line
+			if *regexpFlag != "" {
+				r := regexp.MustCompile(*regexpFlag)
+				if r.Find([]byte(output)) == nil {
+					continue
+				}
+			}
+			fmt.Println(output)
 		}
 	}()
 	cmd.Wait()
@@ -132,6 +140,7 @@ func init() {
 	functionOnlyFlag = flag.Bool("f", false, "show functions only")
 	methodOnlyFlag = flag.Bool("m", false, "show methods only")
 	typeOnlyFlag = flag.Bool("t", false, "show types only")
+	regexpFlag = flag.String("r", "", "use regular expression")
 
 	flag.Parse()
 
