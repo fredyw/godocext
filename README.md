@@ -60,13 +60,14 @@ Examples
 
     Windows (this example uses Powershell)
     --------------------------------------
-    .\godocext -m | Select-String -Pattern "Read\(.*\)"
+    .\godocext.exe -m | Select-String -Pattern "Read\(.*\)"
     godoc bufio Read (to get more detailed information)
 
     Build static output for faster search
     =====================================
     Linux
     -----
+    ./godocext > help.txt
     ./godocext -m > methods.txt
     ./godocext -f > functions.txt
     ./godocext -t > types.txt
@@ -74,8 +75,9 @@ Examples
 
     Windows (this example uses Powershell)
     --------------------------------------
-    .\godocext -m > methods.txt
-    .\godocext -f > functions.txt
-    .\godocext -t > types.txt
+    .\godocext.exe > help.txt
+    .\godocext.exe -m > methods.txt
+    .\godocext.exe -f > functions.txt
+    .\godocext.exe -t > types.txt
     Get-Content methods.txt | Select-String -Pattern "Read\(.*\)"
 
