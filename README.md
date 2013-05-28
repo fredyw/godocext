@@ -1,0 +1,4 @@
+godocext
+========
+
+A godoc extension
