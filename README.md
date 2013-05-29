@@ -1,7 +1,7 @@
 godocext
 ========
 
-A small tool written in Go to do a global search for the whole Go API
+A small tool written in Go to do a global search of the whole Go API
 
 How to build
 ------------
